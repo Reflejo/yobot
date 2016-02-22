@@ -4,6 +4,9 @@ use regex::Captures;
 use regex::Regex;
 use slack::{User, RtmClient};
 
+pub mod echo;
+pub mod meme;
+
 pub struct Message {
     pub user: User,
     pub text: String,

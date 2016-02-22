@@ -1,9 +1,8 @@
 extern crate slack;
 
 use regex::Regex;
-use yobot::listener::{MessageListener, Message};
+use listener::{MessageListener, Message};
 
-#[derive(Debug)]
 pub struct EchoListener {
     regex: Regex
 }

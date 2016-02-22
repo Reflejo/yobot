@@ -4,11 +4,9 @@ extern crate yobot;
 
 use yobot::Yobot;
 use log::{LogLevelFilter};
+use yobot::listener::*;
 
 mod logger;
-mod listener {
-    pub mod echo;
-}
 
 fn main() {
     let _ = log::set_logger(|max_log_level| {
@@ -17,6 +15,7 @@ fn main() {
     });
 
     Yobot::new()
-        .add_listener(listener::echo::EchoListener::new())
+        .add_listener(meme::MemeListener::new())
+        .add_listener(echo::EchoListener::new())
         .connect();
 }

@@ -77,7 +77,7 @@ impl<F> SlackHandler<F>
             }
         }
 
-        (is_addressed, String::from(message))
+        (is_addressed, message.to_string())
     }
 }
 
@@ -94,6 +94,11 @@ impl<F> slack::EventHandler for SlackHandler<F>
                                              channel: Some(ref channel),
                                              ..} = *message
             {
+                let bot_id = cli.get_id().unwrap_or("".to_string());
+                if *user_id == bot_id {
+                    return
+                }
+
                 let (is_addressed, message) = self.parse_message(text);
                 let user = self.user_by_id.get(user_id).unwrap();
                 let message = Message {

@@ -38,6 +38,8 @@
 extern crate log;
 extern crate regex;
 extern crate slack;
+extern crate hyper;
+extern crate rustc_serialize;
 
 pub mod listener;
 pub mod slackhandler;

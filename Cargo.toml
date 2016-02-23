@@ -7,3 +7,5 @@ authors = ["Martin Conte Mac Donell <martin@lyft.com>"]
 slack = "*"
 regex = "*"
 log = "*"
+hyper = "*"
+rustc-serialize = "*"

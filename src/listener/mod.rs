@@ -45,8 +45,8 @@ pub struct Message {
 /// }
 ///
 /// impl MessageListener for EchoListener {
-///     fn help(&self) -> &str {
-///         "echo"
+///     fn help(&self) -> String {
+///         String::from("echo")
 ///     }
 ///
 ///     fn re(&self) -> &Regex {
@@ -60,7 +60,7 @@ pub struct Message {
 /// # }
 /// ```
 pub trait MessageListener {
-    fn help(&self) -> &str;
+    fn help(&self) -> String;
     fn handle(&self, message: &Message, cli: &RtmClient);
     fn re(&self) -> &Regex;
 

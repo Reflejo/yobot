@@ -1,3 +1,19 @@
+//!
+//! Yobot is the main struct of the bot. Add a bunch of listeners and you call `connect` to connect
+//! the real time API and start listening for messages.
+//!
+//! # Example
+//!
+//! ```no_run
+//! # extern crate yobot;
+//! # fn main() {
+//! use yobot::Yobot;
+//!
+//! let yobot = Yobot::new();
+//!     .add_listener(listener::WhateverListener)
+//!     .connect();
+//! # }
+//! ```
 extern crate slack;
 
 use listener::{Message, MessageListener};
@@ -24,8 +40,7 @@ impl Yobot {
                 .collect::<Vec<_>>()
                 .join("\n");
 
-            let help_msg = format!("```{}```", helps);
-            let _ = cli.send_message(&message.channel, &help_msg);
+            let _ = cli.send_message(&message.channel, &helps);
             return
         }
 

@@ -1,3 +1,16 @@
+//!
+//! `SlackHandler` handles all the interactions with the slack API. It connects a 
+//! persistent socket to the Real Time API and listens for all the events. Events are 
+//! communicated back to users of this method by a closure given on the initializer.
+//!
+//! # Example
+//!
+//! ```no_run
+//! # fn main() {
+//! let mut handler = SlackHandler::new(|message, _| { println!("Yo {}", message); });
+//! handler.login_and_run(token);
+//! # }
+//! ```
 extern crate regex;
 extern crate slack;
 
@@ -40,7 +53,7 @@ impl<F> SlackHandler<F>
         info!("Logging bot in ...");
         let (client, rx) = cli.login().unwrap();
         if let (Some(bot_id), Some(name)) = (cli.get_id(), cli.get_name()) {
-            let addresser_regex = format!(r"^\s*<?@?({}|{})>?[:,\s]\s*", bot_id, name);
+            let addresser_regex = format!(r"^\s*<?@?({}|{}|yo)>?[:,\s]\s*", bot_id, name);
             self.addresser = Regex::new(addresser_regex.as_ref()).ok();
         }
 

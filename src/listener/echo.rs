@@ -16,8 +16,8 @@ impl EchoListener {
 }
 
 impl MessageListener for EchoListener {
-    fn help(&self) -> &str {
-        "echo: Just type anything"
+    fn help(&self) -> String {
+        String::from("`echo`: Just type anything")
     }
 
     fn re(&self) -> &Regex {

@@ -3,7 +3,7 @@ extern crate regex;
 extern crate yobot;
 
 use yobot::Yobot;
-use log::{LogLevelFilter};
+use log::LogLevelFilter;
 use yobot::listener::*;
 
 mod logger;
@@ -16,6 +16,5 @@ fn main() {
 
     Yobot::new()
         .add_listener(meme::MemeListener::new())
-        .add_listener(echo::EchoListener::new())
         .connect();
 }

@@ -58,7 +58,7 @@ impl MemeListener {
 impl MessageListener for MemeListener {
     fn help(&self) -> String {
 		format!("`meme`: Post memes, _Usage: meme <type> <line1>|<line2>_.\n \
-				\t\tOptions are: *{}*", self.templates.join(", "))
+				\t\tTypes are: *{}*", self.templates.join(", "))
     }
 
     fn re(&self) -> &Regex {

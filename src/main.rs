@@ -17,5 +17,6 @@ fn main() {
     Yobot::new()
         .add_listener(meme::MemeListener::new())
         .add_listener(slackbot::SlackbotListener::new())
+        .add_listener(profound::ProfoundListener::new())
         .connect();
 }

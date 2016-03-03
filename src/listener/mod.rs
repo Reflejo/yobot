@@ -7,6 +7,7 @@ use slack::{User, RtmClient};
 pub mod echo;
 pub mod meme;
 pub mod slackbot;
+pub mod profound;
 
 pub struct Message {
     pub user: User,
